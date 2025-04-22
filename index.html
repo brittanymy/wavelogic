@@ -14,14 +14,14 @@
 <body>
     <header>
         <div id="logo">Wave Logic</div>
-        <div id="tagline">Visualizing Sine & Cosine | Audio Meets Math</div>
+        <div id="tagline">Visualizing Sine & Cosine | Sound waves modeled using trigonometric functions</div>
     </header>
 
     <div class="app-container">
 
         <!-- Input Panel -->
         <aside class="equation-panel" id="equationPanel">
-            <button id="toggleKeyboard" class="keyboard-toggle">⌨️ Keyboard</button>
+            <button id="toggleKeyboard" class="keyboard-toggle">Keyboard</button>
         </aside>             
       
         <!-- Main Display -->
@@ -29,15 +29,10 @@
             <div class="canvas-wrapper">
                 <canvas id="waveCanvas"></canvas>
 
-                <div class="top-right-buttons">
-                    <button id="download">Download</button>
-                    <button id="delete">Delete</button>
-                </div>
-
                 <div class="mute-button">
                     <button id="mute-toggle" aria-label="Mute/Unmute">
-                        <img src="./assets/icons/High_Audio-removebg-preview.png" alt="Unmuted" id="unmute-icon" />
-                        <img src="./assets/icons/mute.svg" alt="Muted" id="mute-icon" style="display: none;" />
+                        <img src="./assets/icons/High_Audio-removebg-preview.png" alt="Unmuted" id="unmute-icon" class="mute-unmute"/>
+                        <img src="./assets/icons/mute.svg" alt="Muted" id="mute-icon" style="display: none;" class="mute-unmute"/>
                     </button>
                 </div>
             </div>
@@ -78,17 +73,12 @@
     <!-- Footer -->
     <footer>
         <div class="icon-buttons-left">
-            <a href="https://github.com/yourusername" target="_blank">
+            <a href="https://github.com/brittanymy/wavelogic" target="_blank">
                 <img src="./assets/icons/github.svg" alt="GitHub" width="24" height="24">
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank">
+            <a href="https://www.linkedin.com/in/brittanymy/" target="_blank">
                 <img src="./assets/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
             </a>
-        </div>
-
-        <div class="wave-options">
-            <button id="wave-mode">Wave Mode</button>
-            <button id="wave-glow">Wave Glow</button>
         </div>
     </footer>
 

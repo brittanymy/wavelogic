@@ -5,4 +5,4 @@ By using sine and cosine functions, I will create an interactive sound wave synt
 
 
 ## Wireframe
-<a href="./assets/images/WaveLogic Wireframe Sketch.pdf">
+<img src="./assets/images/WaveLogic Wireframe Sketch.pdf">

@@ -1,4 +1,4 @@
-// === Init WaveLogic ===
+// === Init WaveLogic with Audio ===
 document.addEventListener('DOMContentLoaded', () => {
     const panel = document.getElementById('equationPanel');
     const keyboard = document.getElementById('mathKeyboard');
@@ -9,6 +9,48 @@ document.addEventListener('DOMContentLoaded', () => {
     let phase = 0;
   
     const validTrigRegex = /^[-+]?([\d.\/\(\)]+)?(sin|cos)\(.*\)$/i;
+  
+    // === Audio ===
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillators = [];
+    let isMuted = false;
+  
+    function createOscillator(freq = 440, amp = 0.1) {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(amp, audioCtx.currentTime);
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start();
+      return { osc, gain };
+    }
+  
+    function stopAllOscillators() {
+      oscillators.forEach(({ osc }) => {
+        osc.stop();
+      });
+      oscillators.length = 0;
+    }
+  
+    function updateAudio(expressions) {
+      stopAllOscillators();
+      if (isMuted) return;
+      expressions.forEach((expr, i) => {
+        const freq = 220 + (i * 110); // simplistic: vary by index
+        const amp = 0.1;
+        const { osc, gain } = createOscillator(freq, amp);
+        oscillators.push({ osc, gain });
+      });
+    }
+  
+    document.getElementById('mute-toggle').addEventListener('click', () => {
+      isMuted = !isMuted;
+      stopAllOscillators();
+      document.getElementById('mute-icon').style.display = isMuted ? 'inline' : 'none';
+      document.getElementById('unmute-icon').style.display = isMuted ? 'none' : 'inline';
+      renderWaves();
+    });
   
     function renderMathInElement(el) {
       MathJax.typesetPromise([el]);
@@ -225,6 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const expressions = Array.from(document.querySelectorAll('.input-wrapper .equation-input'))
         .filter(input => input.textContent.trim() && !input.closest('.first-input'))
         .map(input => input.textContent.trim());
+  
+      updateAudio(expressions);
   
       const width = canvas.width;
       const height = canvas.height;
