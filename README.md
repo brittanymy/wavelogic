@@ -42,8 +42,6 @@ cd wavelogic
 	1.	Type expressions like sin(x) or 2cos(3x) into the input field
 	2.	Press Enter or tap ⏎ on the mini keyboard to render
 	3.	Toggle the mute button to enable sound
-	4.	Use the Download button to export your wave screen
-	5.	Reopen the app to automatically resume your session
 
 ## Deployed Link
 https://wavelogic.netlify.app/
