@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wave Logic</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.0/lib/browser/math.js"></script> 
+</head>
+
+<body>
+    <header>
+        <div id="logo">Wave Logic</div>
+        <div id="tagline">Visualizing Sine & Cosine | Audio Meets Math</div>
+    </header>
+
+    <div class="app-container">
+
+        <!-- Input Panel -->
+        <aside class="equation-panel" id="equationPanel">
+            <button id="toggleKeyboard" class="keyboard-toggle">⌨️ Keyboard</button>
+        </aside>             
+      
+        <!-- Main Display -->
+        <main class="wave-display">
+            <div class="canvas-wrapper">
+                <canvas id="waveCanvas"></canvas>
+
+                <div class="top-right-buttons">
+                    <button id="download">Download</button>
+                    <button id="delete">Delete</button>
+                </div>
+
+                <div class="mute-button">
+                    <button id="mute-toggle" aria-label="Mute/Unmute">
+                        <img src="./assets/icons/High_Audio-removebg-preview.png" alt="Unmuted" id="unmute-icon" />
+                        <img src="./assets/icons/mute.svg" alt="Muted" id="mute-icon" style="display: none;" />
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Mini Keyboard -->
+        <div class="math-keyboard" id="mathKeyboard" style="display: none;">
+            <div class="keyboard-row">
+                <button data-insert="sin(">sin</button>
+                <button data-insert="cos(">cos</button>
+                <button data-insert="(">(</button>
+                <button data-insert=")">)</button>
+                <button data-insert="/" class="fraction-key">/</button>
+                <button data-insert="x">x</button>
+            </div>
+            <div class="keyboard-row">
+                <button data-insert="1">1</button>
+                <button data-insert="2">2</button>
+                <button data-insert="3">3</button>
+                <button data-insert="4">4</button>
+            </div>
+            <div class="keyboard-row">
+                <button data-insert="5">5</button>
+                <button data-insert="6">6</button>
+                <button data-insert="7">7</button>
+                <button data-insert="8">8</button>
+            </div>
+            <div class="keyboard-row">
+                <button data-insert="9">9</button>
+                <button data-insert="0">0</button>
+                <button data-insert="←">←</button>
+                <button data-insert="⏎" class="enter-key">Enter</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="icon-buttons-left">
+            <a href="https://github.com/yourusername" target="_blank">
+                <img src="./assets/icons/github.svg" alt="GitHub" width="24" height="24">
+            </a>
+            <a href="https://linkedin.com/in/yourusername" target="_blank">
+                <img src="./assets/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
+            </a>
+        </div>
+
+        <div class="wave-options">
+            <button id="wave-mode">Wave Mode</button>
+            <button id="wave-glow">Wave Glow</button>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/nexusui"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

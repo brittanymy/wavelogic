@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "mathjs": "^14.2.1"
+    "mathjs": "^14.2.1",
+    "nexusui": "^2.1.6"
   }
 }
